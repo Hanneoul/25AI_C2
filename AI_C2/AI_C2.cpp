@@ -4,7 +4,7 @@
 #include <iostream>
 #include <math.h>
 
-double PI = 3.14159265358979323846;
+
 
 int drawPoint(int x, int y)
 {
@@ -16,6 +16,7 @@ int main()
 {
     int posx, posy;
     posx=3, posy=3;
+    double PI = 3.14159265358979323846;
 
     double angle = 0;
     int length = 0;
