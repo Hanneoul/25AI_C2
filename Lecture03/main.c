@@ -1,8 +1,8 @@
 ﻿#include <stdio.h>
 
-void sum(int x, int y, int result)
+void sum(int x, int y, int* result)
 {
-    result = x + y;
+    *result = x + y;
 }
 
 int main()
@@ -13,11 +13,15 @@ int main()
 
     int* pa;
     pa = &a;
-    printf("%d", *pa);
+    //printf("%d", *pa);
 
-    sum(a,b,c);
-    
+    sum(a,b,&c);
     printf("%d", c);
 
     return 0;
 }
+
+
+
+
+    

@@ -4,8 +4,6 @@
 #include <iostream>
 #include <math.h>
 
-
-
 int drawPoint(int x, int y)
 {
     printf("\x1B[%d;%dH*",y,x);
