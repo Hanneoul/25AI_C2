@@ -1,7 +1,7 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 
-#define NUM 10000
+#define NUM 10
 
 int main()
 {
