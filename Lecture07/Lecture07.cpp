@@ -10,8 +10,13 @@ int main()
         int j = 0;
         for (j = 0; j < 16; j++)
         {
-            number[j][i] %= 2;
+            number[j][i] = i * 2 +j;
+            printf("%d ", number[j][i]);
+            
         }
+        printf("\n");
     }
 
+
+    printf("%d", *(number[15]+1));
 }
