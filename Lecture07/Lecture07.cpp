@@ -19,4 +19,6 @@ int main()
 
 
     printf("%d", *(number[15]+1));
+
+
 }
