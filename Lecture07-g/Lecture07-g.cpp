@@ -1,6 +1,20 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 
+int LSR_Gossip(int Gender)
+{
+	Gender = 1;
+	printf("\n이세령 : ㅎㅎㅎ 교수님은 게이야...\n");
+	return 0;
+}
+
+int Wife_Command(int *Gender)
+{
+	Gender[0] = 1;
+	printf("\n와이프 : 넌 오늘부로 게이야...\n");
+	return 0;
+}
+
 int main()
 {
 	int* ES_Maum;
@@ -16,6 +30,10 @@ int main()
 	 */
 	ES_Maum[0] = 0;
 	ES_Maum[1] = 1;
+
+	//LSR_Gossip(ES_Maum[0]);
+	Wife_Command(ES_Maum);
+	
 
 	if (ES_Maum[0] == 1)
 	{
