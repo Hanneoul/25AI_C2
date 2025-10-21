@@ -74,8 +74,7 @@ int main()
         number[j][i] = i*2 + j
         여기서 j = 15, i = 1 이므로 값 = 1*2 + 15 = 17
     */
-    printf("%d", *(number[15] + 1)); // 출력 예상: 17
-    printf("\n%d", *(*(number + 15) + 1)); // 출력 예상: 17
+    printf("%d\n", *(number[15] + 1)); // 출력 예상: 17
 
-    return 0;
+    printf("%d", *(*(number+15)+1)); // 출력 예상: 17
 }
