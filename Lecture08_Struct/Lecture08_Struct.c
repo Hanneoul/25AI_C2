@@ -2,6 +2,7 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <conio.h>
 
 struct Fish
@@ -19,6 +20,8 @@ struct Fish
 //물고기 5개 만들기 Fish 배열로.
 int main()
 {
+	struct Fish fishes[5];
+	
 	printf("찌를 던진다 (Y/N) >");
 	char yn;
 	yn = _getch();

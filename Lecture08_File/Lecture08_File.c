@@ -81,6 +81,8 @@
 // 안전한 상수 크기 버퍼
 #define LINE_CAP 256
 
+
+
 int main(void)
 {
     const char* filename = "example.txt";    // 상대경로(현재 작업 디렉터리 기준)
@@ -92,7 +94,7 @@ int main(void)
     //    - 기존 파일이 있다면 내용을 싹 지우고 새로 씀(트렁케이트).
     //    - 기존 내용 유지가 목적이면 "a" 또는 "r+"를 고려.
     // ---------------------------
-    FILE* fp;
+    FILE* fp = NULL;
     fopen_s(&fp, filename, "w");
     if (fp == NULL) {
         // fopen 실패 원인은 errno에 저장됨. perror는 errno를 해석해 사람이 읽을 수 있게 출력.
@@ -141,6 +143,8 @@ int main(void)
         printf("%2d: %s", ++line_no, buffer);
         // 만약 줄 끝 개행 제거가 필요하다면, 개행 탐색 후 '\0'로 치환하면 됨(여기선 그대로 둔다).
     }
+
+    //fscanf
 
     if (ferror(fp)) {
         // EOF가 아니라 에러로 루프가 종료된 경우
