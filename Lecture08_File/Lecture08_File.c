@@ -96,6 +96,7 @@ int main(void)
     // ---------------------------
     FILE* fp = NULL;
     fopen_s(&fp, filename, "w");
+    //fp = fopen(filename, "w");    //CRT NO WARNING 옵션 켜기
     if (fp == NULL) {
         // fopen 실패 원인은 errno에 저장됨. perror는 errno를 해석해 사람이 읽을 수 있게 출력.
         perror("파일 열기 실패(쓰기 모드)");  // 예: 권한 없음, 경로 없음 등
