@@ -105,7 +105,7 @@ void demo_copy_concat(void)
     //    → 직접 '\0' 보장하거나, 나머지 0 채우기 필요.
     char dest2[8];
     // 'hello'를 7글자까지 읽어 복사. 'hello'는 5글자라 '\0'까지 들어감.
-    strncpy(dest2, a, sizeof(dest2) - 1);
+    strncpy(dest2, a, sizeof(dest2) - 5);
     dest2[sizeof(dest2) - 1] = '\0'; // 항상 수동으로 '\0' 보장
     printf("after strncpy (safe): '%s'\n", dest2);
 
@@ -319,14 +319,15 @@ int main(void)
 {
     puts("C <string.h> 수업용 종합 데모 시작");
 
-    demo_strlen();
-    demo_copy_concat();
-    demo_compare();
+    //demo_strlen();
+    //demo_copy_concat();
+    //demo_compare();
     demo_search();
-    demo_tokenize();
-    demo_memory_block();
-    practice_io_concat_search();
+    //demo_tokenize();
+    //demo_memory_block();
+    
+    //practice_io_concat_search();
 
-    puts("\n끝. 질문: 어디서 터질 것 같은지/왜 그런지 말해보자.");
+    puts("\n끝.");
     return 0;
 }
