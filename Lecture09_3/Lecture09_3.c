@@ -15,9 +15,7 @@ int main(void)
     strcpy(buf, input);
     for (char* q = strstr(buf, "gay"); q != NULL; q = strstr(q + 1, "gay")) 
     {
-        *q = '*';
-        *(q+1) = '*';
-        *(q+2) = '*';
+        strncpy(q, "***",3);
     }
     printf("replace 'gay'->'***': \"%s\"\n", buf);
 
