@@ -191,18 +191,35 @@ void demo_tokenize(void)
     //    첫 호출: strtok(문자열, 구분자들)
     //    이어 호출: strtok(NULL, 동일한 구분자들)
     {
-        char temp[64];
-        strcpy(temp, copy); // 매 호출마다 원본 유지 위해 사본 사용
+        char temp[64]; 
+        strcpy(temp, copy);           
 
-        const char* delims = " ,;"; // 스페이스/쉼표/세미콜론 모두 구분자
-        char* tok = strtok(temp, delims);
-        int idx = 0;
-        printf("[strtok] tokens:");
-        while (tok) {
-            printf(" [%d:%s]", idx++, tok);
-            tok = strtok(NULL, delims);
+        const char* delims = " ,;";    // 구분자(Delimiter) 집합. 여기서는 '스페이스', '콤마', '세미콜론' 중 하나라도 만나면 자른다.
+        // 예: "A, B;C D" → "A" | "B" | "C" | "D"
+
+        char* tok = strtok(temp, delims); // 첫 호출: 토큰화 시작.
+        // - temp 문자열을 왼쪽부터 훑다가 delims 중 하나를 만나면 그 위치에 '\0'을 넣어 문자열을 '끊는다'.
+        // - 반환값은 끊어낸 '첫 번째 토큰'의 시작 주소.
+        // - 내부적으로 static 상태 포인터를 사용 → 다음 호출부터 이어서 진행 가능.
+        //   (이 때문에 멀티스레드/중첩 사용에 취약. 대안: strtok_s)
+
+        int idx = 0;                    // 토큰 번호(인덱스) 카운터
+
+        printf("[strtok] tokens:");     // 출력 프리픽스. 이어서 각 토큰을 [번호:문자열] 형태로 붙여서 출력한다.
+
+        while (tok) {                   // 토큰이 NULL이 아닌 동안 반복 (즉, 더 이상 자를 토큰이 없을 때까지)
+            printf(" [%d:%s]", idx++, tok); // 현재 토큰 출력: 공백 하나 + [인덱스:토큰] 형식
+            // 예: [0:Hello] [1:World]
+
+            tok = strtok(NULL, delims); // 이후 호출: 인자를 NULL로 주면 '이전 호출의 남은 위치'부터 계속 토큰화.
+            // - 다음 구분자를 찾아 '\0'로 끊고, 다음 토큰의 포인터를 반환.
+            // - 더 이상 토큰이 없으면 NULL 반환 → while 종료.
         }
-        puts("");
+
+        puts("");                       // 줄바꿈 출력(개행). puts는 문자열 뒤에 자동으로 '\n'을 붙인다.
+        // 위 printf들이 개행 없이 이어 붙였으므로, 마지막에 줄을 종료해 콘솔 가독성을 높인다.
+
+
     }
 
     // 2) strtok_s (MSVC 확장, C11 Annex K 유사) — 스레드 안전
