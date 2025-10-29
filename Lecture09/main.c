@@ -339,8 +339,8 @@ int main(void)
     //demo_strlen();
     //demo_copy_concat();
     //demo_compare();
-    demo_search();
-    //demo_tokenize();
+    //demo_search();
+    demo_tokenize();
     //demo_memory_block();
     
     //practice_io_concat_search();
