@@ -1,8 +1,10 @@
-﻿#include <stdio.h>
+﻿#include <stdio.h>   // printf
+#include <stdlib.h>  // rand, srand
+#include <time.h>    // time (난수 시드 설정)
 #include "action.h"
 //#include "이름_학번.h"
 
-typedef int (*ActionFunc)(int hp);
+typedef int (*ActionFunc)(int hp, char *name);
 
 typedef struct {
     int isDead;
@@ -10,9 +12,6 @@ typedef struct {
     int hp;
     ActionFunc act;   // 행동을 가리키는 함수포인터
 } Player;
-
-
-
 
 int main()
 {
@@ -22,10 +21,12 @@ int main()
     for (i = 0; i < 4; i++)
     {
         p[i].isDead = 0;
+        
         p[i].hp = 100;        
+        //함수 각각 플레이어에 연결하는 부분
+        p[i].name = "ES";
+        p[i].act = Heal;
     }
-
-    //함수 각각 플레이어에 연결하는 부분
 
     while(1)
     {
