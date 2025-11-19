@@ -21,9 +21,33 @@
     <ClCompile Include="Action.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ES1_1101.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ES2_1102.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ES3_1103.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ES4_1104.c">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ES1_1101.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ES2_1102.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ES3_1103.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ES4_1104.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

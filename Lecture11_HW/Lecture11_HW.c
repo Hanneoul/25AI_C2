@@ -1,8 +1,12 @@
 ﻿#include <stdio.h>   // printf
 #include <stdlib.h>  // rand, srand
 #include <time.h>    // time (난수 시드 설정)
+#include <Windows.h>
 #include "action.h"
-//#include "이름_학번.h"
+#include "ES1_1101.h"
+#include "ES2_1102.h"
+#include "ES3_1103.h"
+#include "ES4_1104.h"
 
 typedef int (*ActionFunc)(int hp, char *name);
 
@@ -23,10 +27,19 @@ int main()
         p[i].isDead = 0;
         
         p[i].hp = 100;        
-        //함수 각각 플레이어에 연결하는 부분
-        p[i].name = "ES";
-        p[i].act = Heal;
+        
+        
     }
+    //함수 각각 플레이어에 연결하는 부분
+    p[0].name = "ES1";
+    p[0].act = ES1action;
+    p[1].name = "ES2";
+    p[1].act = Heal;
+    p[2].name = "ES3";
+    p[2].act = Heal;
+    p[3].name = "ES4";
+    p[3].act = Heal;
+
 
     while(1)
     {
@@ -36,15 +49,18 @@ int main()
             {
                 int point = p[i].act(p[i].hp, p[i].name);
                 p[i].hp += point;
+                //Sleep(1000);
             }
 
             if (!p[i].isDead && p[i].hp <= 0)
             {
-                printf("쥬금 : %s", p[i].name);
+                printf("\n*************\n쥬금 : %s\n**************\n\n", p[i].name);
                 p[i].isDead = 1;
+                //Sleep(1000);
             }
-
+            
         }
+        Sleep(1000);
 
         int count = 0;
 

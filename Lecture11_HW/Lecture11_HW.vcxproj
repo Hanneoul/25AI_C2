@@ -128,10 +128,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Action.c" />
+    <ClCompile Include="ES1_1101.c" />
+    <ClCompile Include="ES2_1102.c" />
+    <ClCompile Include="ES3_1103.c" />
+    <ClCompile Include="ES4_1104.c" />
     <ClCompile Include="Lecture11_HW.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
+    <ClInclude Include="ES1_1101.h" />
+    <ClInclude Include="ES3_1103.h" />
+    <ClInclude Include="ES4_1104.h" />
+    <ClInclude Include="ES2_1102.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
