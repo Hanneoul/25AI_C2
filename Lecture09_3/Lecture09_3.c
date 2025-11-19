@@ -17,6 +17,17 @@ int main(void)
     {
         strncpy(q, "***",3);
     }
+
+    for (char* q = strstr(buf, "fuck"); q != NULL; q = strstr(q + 1, "fuck"))
+    {
+        strncpy(q, "****", 4);
+    }
+
+    for (char* q = strstr(buf, "shit"); q != NULL; q = strstr(q + 1, "shit"))
+    {
+        strncpy(q, "****", 4);
+    }
+
     printf("replace 'gay'->'***': \"%s\"\n", buf);
 
 

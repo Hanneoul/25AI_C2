@@ -63,7 +63,7 @@ void input_line(const char* prompt, char* buf, size_t bufsize)
 void demo_strlen(void)
 {
     puts("\n[데모1] strlen vs sizeof");
-    char s1[10] = "abc";         // 'a','b','c','\0', 나머지 쓰레기
+    char s1[10] = "abc";       // 'a','b','c','\0', 나머지 쓰레기
     char s2[] = "hello";       // 컴파일러가 크기 6으로 잡음(마지막 '\0' 포함)
 
     printf("s1=\"%s\"  sizeof(s1)=%zu, strlen(s1)=%zu\n",
@@ -140,7 +140,7 @@ void demo_compare(void)
     printf("strcmp('%s','%s') = %d\n", x, z, strcmp(x, z)); // 동일 → 0
 
     // 접두어 비교: 앞의 3글자만
-    printf("strncmp('%s','%s',3) = %d\n", x, y, strncmp(x, y, 3)); // 'apr' vs 'app' → 양수/음수 확인
+    printf("strncmp('%s','%s',2) = %d\n", x, y, strncmp(x, y, 2)); // 'apr' vs 'app' → 양수/음수 확인
 }
 
 //---------------------------------------------
@@ -208,7 +208,7 @@ void demo_tokenize(void)
         printf("[strtok] tokens:");     // 출력 프리픽스. 이어서 각 토큰을 [번호:문자열] 형태로 붙여서 출력한다.
 
         while (tok) {                   // 토큰이 NULL이 아닌 동안 반복 (즉, 더 이상 자를 토큰이 없을 때까지)
-            printf(" [%d:%s]", idx++, tok); // 현재 토큰 출력: 공백 하나 + [인덱스:토큰] 형식
+            printf(" [%d:%s]", ++idx, tok); // 현재 토큰 출력: 공백 하나 + [인덱스:토큰] 형식
             // 예: [0:Hello] [1:World]
 
             tok = strtok(NULL, delims); // 이후 호출: 인자를 NULL로 주면 '이전 호출의 남은 위치'부터 계속 토큰화.
