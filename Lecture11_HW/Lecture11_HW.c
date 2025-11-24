@@ -25,21 +25,18 @@ int main()
     for (i = 0; i < 4; i++)
     {
         p[i].isDead = 0;
-        
-        p[i].hp = 100;        
-        
-        
+        p[i].hp = 100;
     }
+
     //함수 각각 플레이어에 연결하는 부분
     p[0].name = "ES1";
     p[0].act = ES1action;
     p[1].name = "ES2";
-    p[1].act = Heal;
+    p[1].act = ES2action;
     p[2].name = "ES3";
-    p[2].act = Heal;
+    p[2].act = ES3action;
     p[3].name = "ES4";
-    p[3].act = Heal;
-
+    p[3].act = ES4action;
 
     while(1)
     {
@@ -72,8 +69,7 @@ int main()
 
         //4명 다 죽으면
         if (count == 4)
-            break;
-        
+            break;        
     }
 
     return 0; 
