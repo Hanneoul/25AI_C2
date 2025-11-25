@@ -6,6 +6,7 @@
     -> 다른 .c 파일에서는 절대 접근 불가능.
 */
 static int hidden_value = 10;
+int a = 20;
 
 /*
     프로그램 전체에서 공유 가능한 전역 변수.
@@ -19,7 +20,8 @@ int public_value = 20;
     main.c에서 사용 테스트를 위해 공개한다.
 */
 void PrintValues(void)
-{
+{    
     printf("[a.c] hidden_value = %d\n", hidden_value);
     printf("[a.c] public_value = %d\n", public_value);
+    printf("[a.c] public_value = %d\n", a);
 }

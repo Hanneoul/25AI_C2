@@ -22,13 +22,13 @@
        요약: static = “문 잠그고 ‘출입금지’ 붙여둔 전역.”
 
     4) 비교
-          ┌───────────────────────┬──────────────────────────┐
-          │      extern          │          static           │
-          ├───────────────────────┼──────────────────────────┤
-          │ 다른 파일에서 보임    │ 다른 파일에서 절대 안 보임 │
-          │ 선언(약속) 용도        │ 은닉(숨김) 용도           │
+          ┌────────────┬──────────────┐
+          │      extern            │          static            │
+          ├────────────┼──────────────┤
+          │ 다른 파일에서 보임     │ 다른 파일에서 절대 안 보임 │
+          │ 선언(약속) 용도        │ 은닉(숨김) 용도            │
           │ 메모리 생성 X          │ 정의한 파일에서만 접근     │
-          └───────────────────────┴──────────────────────────┘
+          └────────────┴──────────────┘
 
     5) 왜 헷갈리나?
        - 전역이 하나만 있으면 extern도 static도 필요 없다고 착각함.
@@ -55,7 +55,7 @@ void PrintValues(void);
     -> 실제 정의는 a.c에 있음.
 */
 extern int public_value;
-
+extern int a;
 /*
     b.c에 있는 함수. 값 변경 테스트.
 */
@@ -65,9 +65,12 @@ int main(void)
 {
     printf("=== Before Modification ===\n");
     PrintValues();  // hidden_value=10, public_value=20
+    
 
     printf("\n=== Modify from b.c ===\n");
     ModifyValues(); // public_value=999로 변경
+
+    a = 30;
 
     printf("\n=== After Modification ===\n");
     PrintValues();  // hidden_value는 그대로 10, public_value는 999

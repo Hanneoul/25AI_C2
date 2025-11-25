@@ -17,7 +17,7 @@ extern int public_value;
 void ModifyValues(void)
 {
     public_value = 999;  // 가능
-    // hidden_value = 777; // 불가능 (링크 에러)
+    //hidden_value = 777; // 불가능 (링크 에러)
 
     printf("[b.c] public_value modified to %d\n", public_value);
 }
