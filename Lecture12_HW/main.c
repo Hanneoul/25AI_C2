@@ -13,8 +13,7 @@ int main() {
     printf("--- 게임 시작 ---\n");
     print_status(&player); // player 상태 출력 (extern 사용)
     print_status(&goblin);
-
-    
+        
 
     int result = 1;
     int count = 0;
